@@ -9,17 +9,13 @@
     "init:dirs": "mkdirp sass css vendor images js",
     "init:files": "touch README.md index.html sass/style.scss js/script.js",
     "init:gitignore": "test -f .gitignore || curl -fsSL https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore; (grep -qxF 'CLAUDE.md' .gitignore || printf '\\n# Claude artifacts (keep private)\\nCLAUDE.md\\n' >> .gitignore); (grep -qxF '.claudeignore' .gitignore || printf '.claudeignore\\n' >> .gitignore)",
-    
     "test": "npm run test:html",
     "test:html": "html-validate --formatter stylish *.html",
-    
     "build": "npm-run-all build:sass build:autoprefixer test",
     "build:sass": "sass --style=compressed --no-source-map sass:css",
     "build:autoprefixer": "postcss css/*.css --use autoprefixer -d css/ --map",
-
     "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
     "build-dev:sass": "sass --style=expanded --source-map sass:css",
-
     "watch": "npm-run-all build-dev -p watch:*",
     "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\" \"js/*.js\"",
     "watch:sassprefixer": "onchange sass/**/*.scss -- npm run build-dev"
@@ -27,14 +23,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  
   "engines": {
-      "node": ">=18.0.0"
-    },
-  "dependencies": {},
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "@html-validate/stylish": "^4.3.0",
     "autoprefixer": "^10.4.20",
+    "bootstrap": "^5.3.8",
     "browser-sync": "^3.0.4",
     "html-validate": "^9.7.1",
     "mkdirp": "^3.0.1",
@@ -44,5 +39,9 @@
     "postcss-cli": "^8.3.1",
     "sass": "^1.92.0"
   },
-  "browserslist": ["last 2 versions", "not dead", "> 0.2%"]
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 0.2%"
+  ]
 }
