@@ -1,61 +1,40 @@
-# landing-taskrunner Project
+# Cats of İzmir — landing-taskrunner
 
-## Permissions
-- Default: read-only (plan mode). Ask before any edit.
-- Do not run shell commands unless I explicitly approve a specific command.
-- Prefer small, reviewable patches (unified diffs first).
+## Permissions (for all AI tools)
+- Default: read-only / plan mode. Ask before any edit or command.
+- Never run shell commands unless I explicitly approve the exact command.
+- Propose small, reviewable patches as unified diffs first.
 
 ## Development Workflow
-- Keep costs low: short, focused turns.
-- Always propose a plan, then show a unified diff; ask before editing.
-- Commit after each accepted diff.
+- Keep costs low: short prompts, minimal diffs.
+- After I approve a diff, I will apply/commit locally.
 - Add/update tests when behavior changes.
 
 ## Project Conventions
 - HTML must pass `npm test` (html-validate).
-- Styles live in `sass/` and are compiled to `css/` by the task runner.
-- Use Bootstrap **grid only** from `vendor/bootstrap-grid.min.css` (no full Bootstrap).
+- Use only Bootstrap **grid** from `vendor/bootstrap-grid.min.css` (no full Bootstrap).
+- Styles live in `sass/style.scss` → compiled to `css/style.css`.
+- JS lives in `js/script.js`.
 
-## Project Overview
-This is a new Git repository for a landing-taskrunner project. The repository is currently empty with no commits yet.
+## Repository Status
+- Path: `~/Dev-Projects/landing-taskrunner`
+- Git: active repo with commits; not empty.
 
-## Development Environment
-- **Working Directory**: `/home/andrzej/Desktop/landing-taskrunner`
-- **Platform**: Linux 6.9.1-060901-generic
-- **Git Status**: Clean repository on master branch (no commits yet)
+## NPM Scripts
+- `init-project` — one-time scaffold (do **not** run again without approval).
+- `watch` — dev server + SCSS watch.
+- `build` / `build-dev` — production/dev builds.
+- `test` — html-validate.
 
-## Scripts (npm)
-- `init-project` → scaffold via `init:*`
-- `watch` → BrowserSync + SCSS watcher (build-dev first)
-- `build` / `build-dev` → compile SCSS + autoprefixer (prod/dev)
-- `test` → html-validate
+## Feature Brief (theme)
+- Top nav with hamburger on small screens.
+- Hero carousel: dark overlay, centered captions, CTA. Autoplay ~5s, pause on hover, prev/next buttons.
+- Services: 3 cards (Photo Stories, Care & Tips, Community Map) with simple inline SVG icons.
+- Portfolio: 6 cards (first 3 visible <768px; all 6 ≥768px).
+- Footer: © 2025 Cats of İzmir + social icons.
 
-## Common Commands
-```bash
-# Git operations
-git status
-git add .
-git commit -m "message"
-
-# Development
-npm run watch    # Development with live reload
-npm run build    # Production build
-npm test        # Validate HTML
-```
-
-## Project Structure
-```
-landing-taskrunner/
-├── .git/           # Git repository metadata
-└── CLAUDE.md       # This file
-```
-
-## Notes
-- This is a fresh repository with no initial commits
-- Project structure and build system need to be established
-- Common development commands will be added as the project evolves
-
-## Claude Code Context
-- Repository type: Git
-- Main branch: master
-- Current status: Clean (no uncommitted changes)
+## Tool Conventions
+- Claude/Gemini/Codex: read this file (symlinked as CLAUDE.md, GEMINI.md, CODEX.md).
+- Don’t create separate tool-specific context files; update **this** file only.
+- Allowed read-only actions: list files, read specific files, propose diffs.
+- Disallowed without approval: `npm run init-project`, mass rewrites, adding frameworks.
