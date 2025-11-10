@@ -38,3 +38,15 @@
 - Don’t create separate tool-specific context files; update **this** file only.
 - Allowed read-only actions: list files, read specific files, propose diffs.
 - Disallowed without approval: `npm run init-project`, mass rewrites, adding frameworks.
+
+## Roles & Permissions Matrix
+- Gemini (Research/Reports): May READ any file. Must ASK before writing or running shell. Main outputs: docs/*.md, data/*.json. Prefer unified diffs.
+- Claude Code (Project Lead): Plans, proposes SMALL diffs to index.html, sass/style.scss, js/script.js. Never run shell without explicit approval.
+- Codex (Critic/QA): Reviews diffs & code quality, suggests optimizations, flags a11y/semantics/perf issues. Proposes diffs only; no shell.
+
+Global rules:
+- Single source of truth: CONTEXT.md (symlinked as CLAUDE.md, GEMINI.md, CODEX.md). Do not create separate context files.
+- Always: propose unified diffs first. I apply/commit locally.
+- HTML must pass `npm test` (html-validate). No full Bootstrap; grid CSS only from vendor/.
+- Keep changes surgical; preserve unrelated content.
+
