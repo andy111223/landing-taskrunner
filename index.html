@@ -3,30 +3,70 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Landing Page</title>
+    <title>Cats of İzmir</title>
     <link rel="stylesheet" href="vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <nav class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>Brand</h1>
-                </div>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#home" class="navbar__brand">Cats of İzmir</a>
+                <button type="button" class="navbar__hamburger" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar__hamburger-bar"></span>
+                    <span class="navbar__hamburger-bar"></span>
+                    <span class="navbar__hamburger-bar"></span>
+                </button>
+                <ul class="navbar__list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cats">Cats of İzmir</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero container">
-            <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2>Hero Title</h2>
-                    <p>Hero description text goes here.</p>
-                    <img src="https://via.placeholder.com/800x400" alt="Hero image">
+        <section id="home" class="hero" role="region" aria-roledescription="carousel" aria-live="off" tabindex="0">
+            <div class="hero__slide" aria-hidden="false" aria-current="true">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1600&h=900&fit=crop" alt="Orange tabby cat lounging in Istanbul street">
+                <div class="hero__overlay"></div>
+                <div class="hero__caption">
+                    <h2>Guardians of İzmir</h2>
+                    <p>Discover the beloved street cats that call this ancient city home</p>
+                    <a href="#cats" class="btn btn--primary">Meet the Cats</a>
                 </div>
             </div>
+
+            <div class="hero__slide" aria-hidden="true" inert>
+                <img src="https://images.unsplash.com/photo-1573865526739-10c1dd8c7f87?w=1600&h=900&fit=crop" alt="Tabby cat resting near historic architecture">
+                <div class="hero__overlay"></div>
+                <div class="hero__caption">
+                    <h2>Stories &amp; Moments</h2>
+                    <p>Every corner holds a tale of feline charm and resilience</p>
+                    <a href="#gallery" class="btn btn--primary">View Gallery</a>
+                </div>
+            </div>
+
+            <div class="hero__slide" aria-hidden="true" inert>
+                <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=1600&h=900&fit=crop" alt="Grey and white cat sitting near old building">
+                <div class="hero__overlay"></div>
+                <div class="hero__caption">
+                    <h2>Join Our Community</h2>
+                    <p>Help us care for and celebrate İzmir's street cats</p>
+                    <a href="#contact" class="btn btn--primary">Get Involved</a>
+                </div>
+            </div>
+
+            <button type="button" class="hero__btn hero__btn--prev" aria-label="Previous slide">
+                <span aria-hidden="true">‹</span>
+            </button>
+            <button type="button" class="hero__btn hero__btn--next" aria-label="Next slide">
+                <span aria-hidden="true">›</span>
+            </button>
         </section>
 
         <section class="features container">
@@ -53,7 +93,7 @@
     <footer class="container">
         <div class="row">
             <div class="col-12">
-                <p>&copy; 2023 Landing Page</p>
+                <p>&copy; 2025 Cats of İzmir</p>
             </div>
         </div>
     </footer>

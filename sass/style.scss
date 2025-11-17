@@ -1,45 +1,274 @@
+// Variables
+$navbar-height: 70px;
+$breakpoint-md: 768px;
+$transition-speed: 0.3s;
+
 // Base styles
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     color: #212529;
+    margin: 0;
+    padding: 0;
 }
 
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
-// Header
+// Navbar
 header {
-    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
     border-bottom: 1px solid #e9ecef;
 }
 
-h1 {
-    font-size: 1.5rem;
-    margin: 0;
-    
-    @media (min-width: 768px) {
-        font-size: 2rem;
+.navbar {
+    &__brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #212529;
+        text-decoration: none;
+
+        &:hover {
+            color: #0066cc;
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        position: relative;
+    }
+
+    &__hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+
+        @media (min-width: $breakpoint-md) {
+            display: none;
+        }
+    }
+
+    &__hamburger-bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #212529;
+        transition: transform $transition-speed, opacity $transition-speed;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 2rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid #e9ecef;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform $transition-speed, opacity $transition-speed;
+
+        @media (min-width: $breakpoint-md) {
+            position: static;
+            flex-direction: row;
+            gap: 2rem;
+            padding: 0;
+            background: transparent;
+            border: none;
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        li {
+            margin: 0;
+        }
+
+        a {
+            display: block;
+            padding: 0.5rem 0;
+            color: #212529;
+            text-decoration: none;
+            font-weight: 500;
+
+            @media (min-width: $breakpoint-md) {
+                padding: 0;
+            }
+
+            &:hover {
+                color: #0066cc;
+            }
+        }
+    }
+}
+
+// Nav open state
+.nav--open {
+    .navbar__list {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar__hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar__hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar__hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 
 // Hero section
 .hero {
-    padding: 2rem 0;
-    text-align: center;
-    
-    @media (min-width: 768px) {
-        padding: 4rem 0;
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+
+    @media (min-width: $breakpoint-md) {
+        height: 700px;
     }
-    
+
+    &:focus {
+        outline: 3px solid #0066cc;
+        outline-offset: -3px;
+    }
+
+    &__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out;
+
+        &[aria-hidden="false"] {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        max-width: 800px;
+        padding: 0 1rem;
+        width: 100%;
+        z-index: 1;
+    }
+
     h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
-        
-        @media (min-width: 768px) {
-            font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+
+        @media (min-width: $breakpoint-md) {
+            font-size: 3.5rem;
+        }
+    }
+
+    p {
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+
+        @media (min-width: $breakpoint-md) {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        font-size: 3rem;
+        line-height: 1;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        color: #212529;
+        z-index: 2;
+        transition: background $transition-speed;
+
+        &:hover,
+        &:focus {
+            background: #fff;
+            outline: 3px solid #0066cc;
+        }
+
+        &--prev {
+            left: 1rem;
+        }
+
+        &--next {
+            right: 1rem;
+        }
+    }
+}
+
+// Buttons
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background $transition-speed, transform $transition-speed;
+
+    &--primary {
+        background: #0066cc;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+            background: #0052a3;
+            transform: translateY(-2px);
         }
     }
 }
