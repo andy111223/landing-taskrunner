@@ -3,25 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cats of İzmir</title>
+    <title>Cats of Izmir - Help Sick Cats</title>
     <link rel="stylesheet" href="vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Navbar -->
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#home" class="navbar__brand">Cats of İzmir</a>
-                <button type="button" class="navbar__hamburger" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar__hamburger-bar"></span>
-                    <span class="navbar__hamburger-bar"></span>
-                    <span class="navbar__hamburger-bar"></span>
-                </button>
-                <ul class="navbar__list">
+                <a href="#home" class="brand">Cats of Izmir</a>
+
+                <!-- Hamburger CSS-only -->
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#cats">Cats of İzmir</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#map">Map</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Gallery</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -30,74 +34,160 @@
     </header>
 
     <main>
-        <section id="home" class="hero" role="region" aria-roledescription="carousel" aria-live="off" tabindex="0">
-            <div class="hero__slide" aria-hidden="false" aria-current="true">
-                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1600&h=900&fit=crop" alt="Orange tabby cat lounging in Istanbul street">
-                <div class="hero__overlay"></div>
-                <div class="hero__caption">
-                    <h2>Guardians of İzmir</h2>
-                    <p>Discover the beloved street cats that call this ancient city home</p>
-                    <a href="#cats" class="btn btn--primary">Meet the Cats</a>
-                </div>
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <p class="tagline">Welcome to Our Shelter!</p>
+                <h1 class="headline">Help the Cats of Izmir</h1>
+                <a href="#services" class="btn btn-yellow">Learn More</a>
             </div>
-
-            <div class="hero__slide" aria-hidden="true" inert>
-                <img src="https://images.unsplash.com/photo-1573865526739-10c1dd8c7f87?w=1600&h=900&fit=crop" alt="Tabby cat resting near historic architecture">
-                <div class="hero__overlay"></div>
-                <div class="hero__caption">
-                    <h2>Stories &amp; Moments</h2>
-                    <p>Every corner holds a tale of feline charm and resilience</p>
-                    <a href="#gallery" class="btn btn--primary">View Gallery</a>
-                </div>
-            </div>
-
-            <div class="hero__slide" aria-hidden="true" inert>
-                <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=1600&h=900&fit=crop" alt="Grey and white cat sitting near old building">
-                <div class="hero__overlay"></div>
-                <div class="hero__caption">
-                    <h2>Join Our Community</h2>
-                    <p>Help us care for and celebrate İzmir's street cats</p>
-                    <a href="#contact" class="btn btn--primary">Get Involved</a>
-                </div>
-            </div>
-
-            <button type="button" class="hero__btn hero__btn--prev" aria-label="Previous slide">
-                <span aria-hidden="true">‹</span>
-            </button>
-            <button type="button" class="hero__btn hero__btn--next" aria-label="Next slide">
-                <span aria-hidden="true">›</span>
-            </button>
         </section>
 
-        <section class="features container">
-            <div class="row">
-                <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <img src="https://via.placeholder.com/300x200" alt="Feature 1">
-                    <h3>Feature 1</h3>
-                    <p>Feature 1 description.</p>
+        <!-- Services -->
+        <section id="services" class="services">
+            <div class="container text-center">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">How we help the street cats of Izmir</p>
+
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="service-box">
+                            <div class="icon-circle">
+                                <span class="icon">&#128049;</span>
+                            </div>
+                            <h4>Rescue</h4>
+                            <p>We rescue sick and injured street cats from the streets of Izmir and provide them with immediate care.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="service-box">
+                            <div class="icon-circle">
+                                <span class="icon">&#9764;</span>
+                            </div>
+                            <h4>Medical Care</h4>
+                            <p>Our veterinary team provides medical treatment, vaccinations, and sterilization for all rescued cats.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="service-box">
+                            <div class="icon-circle">
+                                <span class="icon">&#127968;</span>
+                            </div>
+                            <h4>Adoption</h4>
+                            <p>We find loving forever homes for cats ready for adoption, both locally and internationally.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <img src="https://via.placeholder.com/300x200" alt="Feature 2">
-                    <h3>Feature 2</h3>
-                    <p>Feature 2 description.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio / Gallery -->
+        <section id="portfolio" class="portfolio">
+            <div class="container text-center">
+                <h2 class="section-title">Our Cats</h2>
+                <p class="section-subtitle">Meet some of our rescued friends</p>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <figure class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop" alt="Orange tabby cat">
+                            <figcaption>
+                                <h5>Portakal</h5>
+                                <span>Orange Tabby</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <figure class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1573865526739-10c1dd8c7f87?w=400&h=300&fit=crop" alt="Grey cat">
+                            <figcaption>
+                                <h5>Smokey</h5>
+                                <span>British Shorthair</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <figure class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=400&h=300&fit=crop" alt="White and grey cat">
+                            <figcaption>
+                                <h5>Pamuk</h5>
+                                <span>Turkish Van</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <figure class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=400&h=300&fit=crop" alt="Ginger cat">
+                            <figcaption>
+                                <h5>Zencefil</h5>
+                                <span>Ginger Cat</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <figure class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=400&h=300&fit=crop" alt="White cat">
+                            <figcaption>
+                                <h5>Kar</h5>
+                                <span>White Persian</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <figure class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&h=300&fit=crop" alt="Tabby cat">
+                            <figcaption>
+                                <h5>Tekir</h5>
+                                <span>Tabby Mix</span>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <img src="https://via.placeholder.com/300x200" alt="Feature 3">
-                    <h3>Feature 3</h3>
-                    <p>Feature 3 description.</p>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="about bg-light-section">
+            <div class="container text-center">
+                <h2 class="section-title">About Us</h2>
+                <p class="section-subtitle">Our mission and story</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8">
+                        <p>Cats of Izmir is a volunteer-run organization dedicated to helping the street cats of Izmir, Turkey. Since 2018, we have rescued, treated, and rehomed over 500 cats. Our team of dedicated volunteers works tirelessly to ensure that every cat receives the care and love they deserve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <div class="container text-center">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch to help or adopt</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6">
+                        <p>Email: <a href="mailto:info@catsofizmir.org">info@catsofizmir.org</a></p>
+                        <p>Phone: +90 232 123 4567</p>
+                        <p>Address: Kordon, Izmir, Turkey</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="container">
-        <div class="row">
-            <div class="col-12">
-                <p>&copy; 2025 Cats of İzmir</p>
-            </div>
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container text-center">
+            <p class="copyright">&copy; 2025 Cats of Izmir. All rights reserved.</p>
+            <ul class="social">
+                <li><a href="#" aria-label="Facebook">&#9679;</a></li>
+                <li><a href="#" aria-label="Twitter">&#9679;</a></li>
+                <li><a href="#" aria-label="Instagram">&#9679;</a></li>
+            </ul>
         </div>
     </footer>
-
-    <script src="js/script.js" defer></script>
 </body>
 </html>
